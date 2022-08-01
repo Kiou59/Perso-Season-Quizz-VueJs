@@ -199,7 +199,7 @@ if(this.responseArray.includes(id)){
         }
         else if(totalResponseArray==totalQuestionArray&&lenQuestion==lenResponse){
             this.vueResult=`Vous avez raison ${this.question.name} sont récoltés  ${this.textResult}`
-            this.vueResultClass='mb-2 font-bold tracking-tight text-green-800 dark:text-green-800'
+            this.vueResultClass='mb-2 font-bold tracking-tight text-green-700 dark:text-green-700'
           console.log(this.fruits)
           this.finalResult.push(2)
           this.intFinalResult=this.finalResult.reduce((a,b)=>a+b)
