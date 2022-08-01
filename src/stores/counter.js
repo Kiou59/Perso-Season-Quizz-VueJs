@@ -25,6 +25,7 @@ export const useCounterStore = defineStore({
         fallId:2,
         summerId:3,
         vueResult:'',
+        vueResultClass:'mb-2 font-bold tracking-tight text-white dark:text-white',
         s:0,
         step:0,
         questionCount:0,
@@ -96,6 +97,7 @@ questionCountListener(){
        document.getElementById('question').className='hidden'
         this.textResult=''
         this.vueResult=''
+        this.vueResultClass='mb-2 font-bold tracking-tight text-white dark:text-white'
         console.log(this.finalResultProportion)
         // document.getElementById('resultat').className='text-white rounded-lg border-4 border-gray-200 p-2'
         
@@ -197,6 +199,7 @@ if(this.responseArray.includes(id)){
         }
         else if(totalResponseArray==totalQuestionArray&&lenQuestion==lenResponse){
             this.vueResult=`Vous avez raison ${this.question.name} sont récoltés  ${this.textResult}`
+            this.vueResultClass='mb-2 font-bold tracking-tight text-emerald-500 dark:text-emerald-400'
           console.log(this.fruits)
           this.finalResult.push(2)
           this.intFinalResult=this.finalResult.reduce((a,b)=>a+b)
@@ -209,6 +212,7 @@ if(this.responseArray.includes(id)){
             this.vueResult=`Vous devez séléctionner une réponse.`
         }else if(lenQuestion<lenResponse){
             this.vueResult=`Raté  ${this.question.name} ne sont récoltés qu' ${this.textResult}`
+            this.vueResultClass='mb-2 font-bold tracking-tight text-red-600 dark:text-red-600'
             this.responseArray.forEach(response=>{
                 document.getElementById(`${response}`).className=this.classSeasonSleepWrong
             })
@@ -219,6 +223,7 @@ if(this.responseArray.includes(id)){
           this.intFinalResult=this.finalResult.reduce((a,b)=>a+b)
         }else if((lenQuestion==2&&lenResponse==1)&&(intQuestionArray.includes(this.responseArray[0]))){
             this.vueResult=`C'est pas tout à fait ça ${this.question.name} sont récoltés  ${this.textResult}`
+            this.vueResultClass='mb-2 font-bold tracking-tight text-amber-600 dark:text-amber-600'
 
             this.seasonQuestion.forEach(response=>{
                 document.getElementById(`${response}`).className=this.classSeasonSleepOk
@@ -236,10 +241,12 @@ if(this.responseArray.includes(id)){
                 document.getElementById(`${response}`).className=this.classSeasonSleepAlmost
             })
             this.vueResult=`C'est pas tout à fait ça ${this.question.name} sont récoltés  ${this.textResult}`
+            this.vueResultClass='mb-2 font-bold tracking-tight text-amber-600 dark:text-amber-600'
           this.finalResult.push(1)
           this.intFinalResult=this.finalResult.reduce((a,b)=>a+b)
         }else{
             this.vueResult=`Raté ${this.question.name} sont récoltés  ${this.textResult}`
+            this.vueResultClass='mb-2 font-bold tracking-tight text-red-600 dark:text-red-600'
             this.finalResult.push(0)
             this.intFinalResult=this.finalResult.reduce((a,b)=>a+b)
             this.seasonQuestion.forEach(response=>{

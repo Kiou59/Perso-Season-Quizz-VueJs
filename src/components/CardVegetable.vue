@@ -17,7 +17,7 @@ quizz.initData()
         
     
     </div>
-    <div class="mb-2 font-bold tracking-tight text-white dark:text-white">{{ quizz.vueResult }}</div>
+    <div :class="quizz.vueResultClass">{{ quizz.vueResult }}</div>
 </div>
 </template>
 <style scoped>
