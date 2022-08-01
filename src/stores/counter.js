@@ -31,7 +31,7 @@ export const useCounterStore = defineStore({
         questionCount:0,
         classSeasonActive:'text-white rounded-lg border-4 bg-gray-200 bg-opacity-50 border-gray-200 p-2',
         classSeasonSleep:'text-white rounded-lg border-4  border-gray-200 p-2',
-        classSeasonSleepOk:'text-white rounded-lg border-4 bg-green-300 border-gray-200 p-2',
+        classSeasonSleepOk:'text-white rounded-lg border-4 bg-green-500 border-gray-200 p-2',
         classSeasonSleepAlmost:'text-white rounded-lg border-4 bg-orange-400 border-gray-200 p-2',
         classSeasonSleepWrong:'text-white rounded-lg border-4 bg-red-800 border-gray-200 p-2',
         finalResultTexts:['Même pas un tout petit point? vous pouvez pas rester sur ce score','Je suis sur que vous pouvez mieux faire','Je suis sur que vous avez appris des choses. Vous voulez en apprendre plus?','Pas mal! Vous voulez voir si vous pouvez faire mieux?',"C'est un! Vous voulez confirmer?"],
