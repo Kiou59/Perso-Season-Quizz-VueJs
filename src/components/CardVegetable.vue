@@ -7,7 +7,7 @@ quizz.initData()
 
 </script>
 <template>
-<div id='card' class="max-w-sm rounded-lg border-4 border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
+<div id='card' class="max-w-sm rounded-lg border-4 border-gray-700 shadow-md bg-gray-800 ">
     
         <img class="opacity-70 rounded-t-lg" :src="quizz.question.src" alt="" />
     
@@ -30,6 +30,7 @@ quizz.initData()
     width:auto;
     margin: auto;
     color:white;
+    background:grey
 }
 h5{
    font-size: 1rem; 
