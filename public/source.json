@@ -1,0 +1,328 @@
+{
+
+    "seasons": [{
+            "id": "0",
+            "text": "en hiver "
+        },
+        {
+            "id": "1",
+            "text": "au printemp "
+        }, {
+            "id": "2",
+            "text": "en été "
+        }, {
+            "id": "3",
+            "text": "à l'automne "
+        }
+    ],
+    "fruits": [{
+            "name": "les clementines",
+            "seasonId": ["0", "3"],
+            "src": "img/clementines.jpg"
+        },
+        {
+            "name": "les kiwis",
+            "seasonId": ["0", "1", "3"],
+            "src": "img/kiwis.jpg"
+        },
+        {
+            "name": "les grenades",
+            "seasonId": ["0", "3"],
+            "src": "img/grenades.jpg"
+        },
+        {
+            "name": "les mandarines",
+            "seasonId": ["0", "3"],
+            "src": "img/mandarines.jpeg"
+        },
+        {
+            "name": "les pommes",
+            "seasonId": ["0", "3"],
+            "src": "img/pommes.jpg"
+        },
+        {
+            "name": "les poires",
+            "seasonId": ["0", "3"],
+            "src": "img/poires.jpg"
+        },
+        {
+            "name": "les pomelos",
+            "seasonId": ["0", "1"],
+            "src": "img/pomelos.jpg"
+        },
+        {
+            "name": "les kakis",
+            "seasonId": ["0", "2"],
+            "src": "img/kakis.jpg"
+
+        },
+        {
+            "name": "les oranges",
+            "seasonId": ["0", "1"],
+            "src": "img/oranges.jpg"
+        },
+        {
+            "name": "les fraises",
+            "seasonId": ["1"],
+            "src": "img/fraises.jpg"
+        },
+        {
+            "name": "les rhubarbes",
+            "seasonId": ["1", "2"],
+            "src": "img/rhubarbes.jpg"
+        },
+        {
+            "name": "les cerises",
+            "seasonId": ["1"],
+            "src": "img/cerises.jpg"
+        },
+        {
+            "name": "les framboises",
+            "seasonId": ["1", "2"],
+            "src": "img/framboises.jpg"
+        },
+        {
+            "name": "les pêches",
+            "seasonId": ["2"],
+            "src": "img/peches.jpg"
+        },
+        {
+            "name": "les nectarines",
+            "seasonId": ["2"],
+            "src": "img/nectarines.jpg"
+        },
+        {
+            "name": "les abricots",
+            "seasonId": ["2"],
+            "src": "img/abricots.jpg"
+        },
+        {
+            "name": "les melons",
+            "seasonId": ["2"],
+            "src": "img/melons.jpg"
+        },
+        {
+            "name": "les pasteques",
+            "seasonId": ["2"],
+            "src": "img/pasteques.jpg"
+        },
+        {
+            "name": "les groseilles",
+            "seasonId": ["2"],
+            "src": "img/groseilles.jpg"
+        },
+        {
+            "name": "les myrtilles",
+            "seasonId": ["2"],
+            "src": "img/myrtilles.jpg"
+        },
+        {
+            "name": "les tomates",
+            "seasonId": ["2"],
+            "src": "img/tomates.jpg"
+        },
+        {
+            "name": "les prunes",
+            "seasonId": ["2", "3"],
+            "src": "img/prunes.jpeg"
+        },
+        {
+            "name": "les raisins",
+            "seasonId": ["2", "3"],
+            "src": "img/raisins.jpg"
+        },
+        {
+            "name": "les figues",
+            "seasonId": ["2", "3"],
+            "src": "img/figues.jpg"
+        },
+        {
+            "name": "les mirabelles",
+            "seasonId": ["2"],
+            "src": "img/mirabelles.jpg"
+        },
+        {
+            "name": "les mûres",
+            "seasonId": ["2"],
+            "src": "img/mures.jpg"
+        },
+        {
+            "name": "les noisettes",
+            "seasonId": ["2"],
+            "src": "img/noisettes.jpg"
+
+        },
+        {
+            "name": "les chataignes",
+            "seasonId": ["3"],
+            "src": "img/chataignes.jpg"
+
+        },
+        {
+            "name": "les noix",
+            "seasonId": ["3"],
+            "src": "img/noix.jpg"
+        },
+        {
+            "name": "les coings",
+            "seasonId": ["3"],
+            "src": "img/coings.jpg"
+        },
+        {
+            "name": "les citrons",
+            "seasonId": ["0", "1", "3"],
+            "src": "img/citrons.jpg"
+        }
+    ],
+    "vegetables": [{
+            "name": "les carottes",
+            "seasonId": ["0", "1", "2", "3"],
+            "src": "img/carottes.jpg"
+        },
+        {
+            "name": "les artichauts",
+            "seasonId": ["1", "2"],
+            "src": "img/artichauts.jpg"
+        },
+        {
+            "name": "les radis",
+            "seasonId": ["1"],
+            "src": "img/radis.jpg"
+        },
+        {
+            "name": "les concombres",
+            "seasonId": ["1", "3", "2"],
+            "src": "img/concombres.jpg"
+        },
+        {
+            "name": "les asperges",
+            "seasonId": ["1"],
+            "src": "img/asperges.jpg"
+        },
+        {
+            "name": "les petits pois",
+            "seasonId": ["1"],
+            "src": "img/petits-poids.jpg"
+        },
+        {
+            "name": "les fenouils",
+            "seasonId": ["1", "2", "3"],
+            "src": "img/fenouils.jpg"
+        },
+        {
+            "name": "les laitues",
+            "seasonId": ["1", "2"],
+            "src": "img/laitues.jpg"
+        },
+        {
+            "name": "les feves",
+            "seasonId": ["1"],
+            "src": "img/feves.jpg"
+        },
+        {
+            "name": "les courgettes",
+            "seasonId": ["1", "2"],
+            "src": "img/courgettes.jpg"
+        },
+        {
+            "name": "les aubergines",
+            "seasonId": ["2"],
+            "src": "img/aubergines.jpg"
+        },
+        {
+            "name": "les poivrons",
+            "seasonId": ["2"],
+            "src": "img/poivrons.jpg"
+        },
+        {
+            "name": "les blettes",
+            "seasonId": ["1", "2", "3"],
+            "src": "img/blettes.jpg"
+        },
+        {
+            "name": "les brocolis",
+            "seasonId": ["2", "3"],
+            "src": "img/brocolis.jpg"
+        },
+        {
+            "name": "les champignons",
+            "seasonId": ["0", "1", "2", "3"],
+            "src": "img/champignons.jpg"
+        },
+        {
+            "name": "les haricots verts",
+            "seasonId": ["2"],
+            "src": "img/haricots-verts.jpg"
+        },
+        {
+            "name": "les celeris branches",
+            "seasonId": ["0", "2", "3"],
+            "src": "img/celeris.jpg"
+        },
+        {
+            "name": "les maïs",
+            "seasonId": ["2", "3"],
+            "src": "img/mais.jpg"
+        },
+        {
+            "name": "les epinards",
+            "seasonId": ["0", "1", "2"],
+            "src": "img/epinards.jpg"
+        },
+        {
+            "name": "les poireaux",
+            "seasonId": ["0", "1", "3"],
+            "src": "img/poireaux.jpg"
+        },
+        {
+            "name": "les radis noirs",
+            "seasonId": ["3", "0"],
+            "src": "img/radis-noirs.jpg"
+        },
+        {
+            "name": "les choux",
+            "seasonId": ["0", "1", "3"],
+            "src": "img/choux.jpg"
+        },
+        {
+            "name": "les courges",
+            "seasonId": ["3", "0"],
+            "src": "img/courges.jpg"
+        },
+        {
+            "name": "les navets",
+            "seasonId": ["3", "1", "0"],
+            "src": "img/navets.jpg"
+        },
+        {
+            "name": "les celeris raves",
+            "seasonId": ["3", "0"],
+            "src": "img/celeri-raves.jpg"
+        },
+        {
+            "name": "les choux de Bruxelles",
+            "seasonId": ["3", "0"],
+            "src": "img/chou-de-bruxelles.jpg"
+        },
+        {
+            "name": "les betteraves",
+            "seasonId": ["3", "1", "0"],
+            "src": "img/betteraves.jpg"
+        },
+        {
+            "name": "les panais",
+            "seasonId": ["0", "3"],
+            "src": "img/panais.jpg"
+        },
+        {
+            "name": "les topinambourgs",
+            "seasonId": ["3", "1", "0"],
+            "src": "img/topinambourgs.jpg"
+        },
+        {
+            "name": "les endives",
+            "seasonId": ["0", "1", "3"],
+            "src": "img/endives.jpg"
+        }
+    ]
+}

@@ -1,0 +1,227 @@
+import { defineStore } from 'pinia'
+
+export const useCounterStore = defineStore({
+    id: 'counter',
+    state: () => ({
+        seasonsArray:[],
+        fruitsArray:[],
+        vegetablesArray:[],
+        classShow:'',
+        classHidden:'hidden',
+        classRow:'hidden',
+        value1: true,
+        selectFruits:[],
+        fruits:[],
+        question:'',
+        seasonQuestion:'',
+        seasonResponse:'',
+        finalResult:[],
+        intFinalResult:0,
+        finalResultProportion:0,
+        textResult:'' , 
+        responseArray:[],
+        restFruits:[],
+        winterId:0,
+        springId:1,
+        fallId:2,
+        summerId:3,
+        vueResult:'',
+        s:0,
+        step:0,
+        questionCount:0,
+        classSeasonActive:'text-white rounded-lg border-4 bg-gray-200 bg-opacity-50 border-gray-200 p-2',
+        classSeasonSleep:'text-white rounded-lg border-4  border-gray-200 p-2',
+        classSeasonSleepOk:'text-white rounded-lg border-4 bg-green-300 border-gray-200 p-2',
+        classSeasonSleepAlmost:'text-white rounded-lg border-4 bg-orange-400 border-gray-200 p-2',
+        classSeasonSleepWrong:'text-white rounded-lg border-4 bg-red-800 border-gray-200 p-2'
+    }),
+    // getters: {
+    //     doubleCount: (state) => state.counter * 2
+    // },
+    actions: {
+        // affiche la pop up, son niveau actuel et le texte en fonction du niveau en cour
+ initData(){
+            this.seasonsArray=JSON.parse(localStorage.getItem("seasonsArray"))
+            console.log(this.seasonsArray)
+            this.fruitsArray=JSON.parse(localStorage.getItem("fruitsArray"))
+            console.log(this.fruitsArray)
+            this.vegetablesArray=JSON.parse(localStorage.getItem("vegetablesArray"))
+            console.log(this.vegetablesArray)
+
+
+},startGame(){
+    document.getElementById('firstPage').className='hidden'
+    document.getElementById('cardQuestion').className='mx-auto max-w-sm rounded-lg border-4 border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700'
+    this.classRow=''
+    this.fruitsSelect()
+},
+questionCountListener(){
+    if(this.questionCount==2){
+        document.getElementById('note').className='mx-auto max-w-sm rounded-lg border-4 border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700'
+        document.getElementById('cardQuestion').className='hidden'
+        document.getElementById('selectedResponse').className='hidden'
+    }
+},
+
+ async fruitsSelect(){
+    this.questionCountListener()
+       document.getElementById('question').className='hidden'
+        this.textResult=''
+        this.vueResult=''
+        console.log(this.finalResultProportion)
+        // document.getElementById('resultat').className='text-white rounded-lg border-4 border-gray-200 p-2'
+        
+        this.seasonsArray.forEach(season=>{
+            document.getElementById(`${season.id}`).className=this.classSeasonSleep
+        })
+        let m=0;
+        
+      
+        m=(Math.floor(Math.random() * this.fruitsArray.length))
+        if(this.finalResult.length==0){
+            
+        }
+      if(this.s==0)
+        {
+        this.s=1
+        this.question=this.fruitsArray[m]
+        this.restFruits =this.fruitsArray.splice(m,1)
+      this.seasonQuestion=this.question.seasonId.map(e=>e)
+        console.log(this.question.name)
+        console.log(this.seasonsArray)
+        this.seasonResponse=this.seasonQuestion.map(season=>this.seasonsArray[season].text)
+        console.log(this.finalResult)
+
+        console.log(this.seasonResponse)
+        console.log(this.seasonQuestion)
+        for (let i=0; i<=(this.seasonResponse.length-1);i++){
+          if(i == (this.seasonResponse.length-3)){
+            this.textResult+=`${this.seasonResponse[i]}, `
+          }else if(i==(this.seasonResponse.length-2)){
+            this.textResult+=`${this.seasonResponse[i]} et `
+          }else{
+            this.textResult+=`${this.seasonResponse[i]}. `
+          }
+        }}else if(this.s==1){
+            this.s=0
+        this.question=this.vegetablesArray[m]
+        this.restFruits =this.vegetablesArray.splice(m,1)
+      this.seasonQuestion=this.question.seasonId.map(e=>e)
+        console.log(this.question.name)
+        console.log(this.seasonsArray)
+        this.seasonResponse=this.seasonQuestion.map(season=>this.seasonsArray[season].text)
+        console.log(this.finalResult)
+        this.intFinalResult=this.finalResult.reduce((a,b)=>a+b)
+        console.log(this.seasonResponse)
+        console.log(this.seasonQuestion)
+        for (let i=0; i<=(this.seasonResponse.length-1);i++){
+          if(i == (this.seasonResponse.length-3)){
+            this.textResult+=`${this.seasonResponse[i]}, `
+          }else if(i==(this.seasonResponse.length-2)){
+            this.textResult+=`${this.seasonResponse[i]} et `
+          }else{
+            this.textResult+=`${this.seasonResponse[i]}. `
+          }
+        }
+        }     console.log(this.intFinalResult)
+        
+      
+},
+ response(id){
+if(this.responseArray.includes(id)){
+        this.restFruits=this.responseArray.splice(this.responseArray.indexOf(id,1))
+        console.log(document.getElementById(`${id}`).className)
+        document.getElementById(`${id}`).className=this.classSeasonSleep
+        
+    }else{
+        this.responseArray.push(id)
+        console.log(this.responseArray)
+        console.log(document.getElementById(`${id}`).className)
+        document.getElementById(`${id}`).className=this.classSeasonActive
+
+
+    }},
+    Resultat(){
+
+        document.getElementById('resultat').className='hidden'
+        document.getElementById('question').className='text-white rounded-lg border-4 border-gray-200 p-2'    
+        console.log(this.responseArray[0])
+        this.responseArray=this.responseArray.sort()
+        this.seasonQuestion=this.seasonQuestion.sort()
+        let totalQuestionArray=null
+        let lenQuestion=this.seasonQuestion.length
+        let totalResponseArray=null
+        let lenResponse=this.responseArray.length
+        let intQuestionArray=this.seasonQuestion.map((e)=>parseInt(e))
+        let stringQuestionArray=this.seasonQuestion.toString()
+        totalResponseArray = this.responseArray.reduce((a,b)=>parseInt(a)+parseInt(b))
+        totalQuestionArray=this.seasonQuestion.reduce((a,b)=>parseInt(a)+parseInt(b))
+      console.log(intQuestionArray)
+        console.log(stringQuestionArray)
+        console.log(totalQuestionArray)
+        console.log(this.seasonQuestion)
+        if(lenResponse==null){
+            this.vueResult=`Vous devez séléctionner une réponse.`
+        }
+        else if(totalResponseArray==totalQuestionArray&&lenQuestion==lenResponse){
+            this.vueResult=`Vous avez raison ${this.question.name} sont récoltés  ${this.textResult}`
+          console.log(this.fruits)
+          this.finalResult.push(2)
+          this.intFinalResult=this.finalResult.reduce((a,b)=>a+b)
+          this.responseArray.forEach(response=>{
+            document.getElementById(`${response}`).className=this.classSeasonSleepOk
+        })
+        }else if(this.responseArray.length==0&&this.seasonQuestion.length>1){
+          this.vueResult=`Vous devez séléctionner au moins une réponse (mais plusieurs réponse pour cette question... C'est plutot conseillé <<wink--wink>> )`
+        }else if(this.responseArray.length==0&&this.seasonQuestion.length==1){
+            this.vueResult=`Vous devez séléctionner une réponse.`
+        }else if(lenQuestion<lenResponse){
+            this.vueResult=`Raté  ${this.question.name}ne sont récoltés qu' ${this.textResult}`
+            this.responseArray.forEach(response=>{
+                document.getElementById(`${response}`).className=this.classSeasonSleepWrong
+            })
+            this.seasonQuestion.forEach(response=>{
+                document.getElementById(`${response}`).className=this.classSeasonSleepOk
+            })
+          this.finalResult.push(0)
+          this.intFinalResult=this.finalResult.reduce((a,b)=>a+b)
+        }else if((lenQuestion==2&&lenResponse==1)&&(intQuestionArray.includes(this.responseArray[0]))){
+            this.vueResult=`C'est pas tout à fait ça ${this.question.name} sont récoltés  ${this.textResult}`
+
+            this.seasonQuestion.forEach(response=>{
+                document.getElementById(`${response}`).className=this.classSeasonSleepOk
+            })
+            this.responseArray.forEach(response=>{
+                document.getElementById(`${response}`).className=this.classSeasonSleepAlmost
+            })
+          this.finalResult.push(1)
+          this.intFinalResult=this.finalResult.reduce((a,b)=>a+b)
+        }else if((lenQuestion==3&&lenResponse==2)&&((stringQuestionArray.includes(this.responseArray[0]))||(stringQuestionArray.includes(this.responseArray[1])))){
+            this.seasonQuestion.forEach(response=>{
+                document.getElementById(`${response}`).className=this.classSeasonSleepOk
+            })
+            this.responseArray.forEach(response=>{
+                document.getElementById(`${response}`).className=this.classSeasonSleepAlmost
+            })
+            this.vueResult=`C'est pas tout à fait ça ${this.question.name} sont récoltés  ${this.textResult}`
+          this.finalResult.push(1)
+          this.intFinalResult=this.finalResult.reduce((a,b)=>a+b)
+        }else{
+            this.vueResult=`Raté ${this.question.name} sont récoltés  ${this.textResult}`
+            this.finalResult.push(0)
+            this.intFinalResult=this.finalResult.reduce((a,b)=>a+b)
+            this.seasonQuestion.forEach(response=>{
+                document.getElementById(`${response}`).className=this.classSeasonSleepOk
+            })
+            this.responseArray.forEach(response=>{
+                document.getElementById(`${response}`).className=this.classSeasonSleepWrong
+            })
+          }
+          this.responseArray=[]
+          this.questionCount++
+          console.log(this.questionCount)
+         
+        }
+    }
+}
+)
