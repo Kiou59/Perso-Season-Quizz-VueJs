@@ -21,15 +21,21 @@ quizz.initData()
 </div>
 </template>
 <style scoped>
- #card{
+ #card {
     font-family: 'Exo', sans-serif;
     font-weight:bold;
     color: #fff;
-    font-size: 2.5rem;
+    font-size: 1rem;
     text-align:center;
     width:auto;
     margin: auto;
     color:white;
+}
+h5{
+   font-size: 1rem; 
+}
+div{
+     font-size: 1rem; 
 }
 @media( orientation:portrait) {
  #card{
@@ -44,4 +50,30 @@ quizz.initData()
 }
 
 }
+@media (height>=720px)
+{
+     #card{
+    font-family: 'Exo', sans-serif;
+    font-weight:bold;
+    color: #fff;
+    font-size: 2.5rem;
+    text-align:center;
+    width:auto;
+    margin: auto;
+    color:white;
+}
+    .context section {
+    margin: auto;
+    margin-bottom: 4rem;
+      color: #fff;
+
+    font-weight:bold;
+}
+.context h1 {
+    color: #fff;
+    margin-bottom:6rem;
+}
+
+}
+
 </style>
