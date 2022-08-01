@@ -34,4 +34,26 @@ h1{
     margin: auto;
     color:white;
 }
+@media(orientation:portrait){
+    p{
+       font-family: 'Exo', sans-serif;
+    font-weight:bold;
+    color: #fff;
+    font-size: 1.5rem;
+    text-align:center;
+    width:auto;
+    margin: auto;
+    color:white;
+}
+h1{
+    font-family: 'Exo', sans-serif;
+    font-weight:bold;
+    color: #fff;
+    font-size: 2rem;
+    text-align:center;
+    width:auto;
+    margin: auto;
+    color:white;
+}
+}
 </style>

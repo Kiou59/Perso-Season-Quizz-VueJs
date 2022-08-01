@@ -28,4 +28,17 @@ const quizz = useCounterStore();
     margin: auto;
     color:white;
 }
+@media( orientation:portrait) {
+ #card{
+    font-family: 'Exo', sans-serif;
+    font-weight:bold;
+    color: #fff;
+    font-size: 1.7rem;
+    text-align:center;
+    width:auto;
+    margin: auto;
+    color:white;
+}
+
+}
 </style>

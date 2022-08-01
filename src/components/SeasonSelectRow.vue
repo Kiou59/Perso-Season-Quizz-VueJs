@@ -49,5 +49,20 @@ div {
     display:flex;
     justify-content:space-around;
 }
-
+@media (orientation:portrait){
+    div {
+    font-family: 'Exo', sans-serif;
+    font-weight:bold;
+    color: #fff;
+    font-size: 1rem;
+    text-align:center;
+    width:auto;
+    margin: 5px;
+   
+}
+#wrapperSeason{
+    display:flex;
+    justify-content:space-around;
+}
+}
 </style>
