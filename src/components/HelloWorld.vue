@@ -21,7 +21,7 @@ const quizz = useCounterStore();
             <p>Apprenez et recommencer!</p>
         </section>
         <section @click='quizz.startGame'  >
-<button  type="button" id='startButton' class="btn btn-lg btn-light mx-auto">START</button>
+<button  type="button" id='startButton' class="mb-4 btn btn-lg btn-light mx-auto">START</button>
         </section>
 
 </div>
@@ -68,7 +68,7 @@ body {
 
 .context section {
     margin: auto;
-    margin-bottom: 10rem;
+    margin-bottom: 5rem;
       color: #fff;
     font-size: 1.7rem;
     font-weight:bold;

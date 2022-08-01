@@ -83,6 +83,7 @@ questionCountListener(){
 },
 
  async fruitsSelect(){
+    this.responseArray=[]
     this.questionCountListener()
        document.getElementById('question').className='hidden'
         this.textResult=''
@@ -195,7 +196,7 @@ if(this.responseArray.includes(id)){
         }else if(this.responseArray.length==0&&this.seasonQuestion.length==1){
             this.vueResult=`Vous devez séléctionner une réponse.`
         }else if(lenQuestion<lenResponse){
-            this.vueResult=`Raté  ${this.question.name}ne sont récoltés qu' ${this.textResult}`
+            this.vueResult=`Raté  ${this.question.name} ne sont récoltés qu' ${this.textResult}`
             this.responseArray.forEach(response=>{
                 document.getElementById(`${response}`).className=this.classSeasonSleepWrong
             })
@@ -236,7 +237,7 @@ if(this.responseArray.includes(id)){
                 document.getElementById(`${response}`).className=this.classSeasonSleepWrong
             })
           }
-          this.responseArray=[]
+
           this.questionCount++
           console.log(this.questionCount)
          
