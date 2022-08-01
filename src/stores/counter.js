@@ -29,7 +29,7 @@ export const useCounterStore = defineStore({
         s:0,
         step:0,
         questionCount:0,
-        classSeasonActive:'text-white rounded-lg border-4 bg-gray-200 bg-opacity-50 border-gray-200 p-2',
+        classSeasonActive:'text-white rounded-lg border-4 bg-gray-500 bg-opacity-50 border-gray-200 p-2',
         classSeasonSleep:'text-white rounded-lg border-4  border-gray-200 p-2',
         classSeasonSleepOk:'text-white rounded-lg border-4 bg-green-500 border-gray-200 p-2',
         classSeasonSleepAlmost:'text-white rounded-lg border-4 bg-orange-400 border-gray-200 p-2',
