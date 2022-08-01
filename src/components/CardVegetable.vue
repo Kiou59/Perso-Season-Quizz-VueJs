@@ -13,7 +13,7 @@ quizz.initData()
     
     <div class="p-5">
         
-            <h5 class="mb-2 font-bold tracking-tight text-white dark:text-white">A quelle(s) saison(s) sont récoltés {{quizz.question.name}}</h5>
+            <h5 class="mb-2 font-bold tracking-tight text-white dark:text-white">A quelle(s) saison(s) sont récoltés {{quizz.question.name}}?</h5>
         
     
     </div>
