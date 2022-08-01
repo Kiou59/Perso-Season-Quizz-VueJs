@@ -206,7 +206,17 @@ if(this.responseArray.includes(id)){
           this.responseArray.forEach(response=>{
             document.getElementById(`${response}`).className=this.classSeasonSleepOk
         })
-        }else if(this.responseArray.length==0&&this.seasonQuestion.length>1){
+        }        else if(totalResponseArray==totalQuestionArray&&lenQuestion==lenResponse){
+            this.vueResult=`Vous avez raison ${this.question.name} sont récoltés  ${this.textResult}`
+            this.vueResultClass='mb-2 font-bold tracking-tight text-green-700 dark:text-green-700'
+          console.log(this.fruits)
+          this.finalResult.push(2)
+          this.intFinalResult=this.finalResult.reduce((a,b)=>a+b)
+          this.responseArray.forEach(response=>{
+            document.getElementById(`${response}`).className=this.classSeasonSleepOk
+        })
+        }
+        else if(this.responseArray.length==0&&this.seasonQuestion.length>1){
           this.vueResult=`Vous devez séléctionner au moins une réponse (mais plusieurs réponse pour cette question... C'est plutot conseillé <<wink--wink>> )`
         }else if(this.responseArray.length==0&&this.seasonQuestion.length==1){
             this.vueResult=`Vous devez séléctionner une réponse.`
@@ -233,7 +243,7 @@ if(this.responseArray.includes(id)){
             })
           this.finalResult.push(1)
           this.intFinalResult=this.finalResult.reduce((a,b)=>a+b)
-        }else if((lenQuestion==3&&lenResponse==2)&&((stringQuestionArray.includes(this.responseArray[0]))||(stringQuestionArray.includes(this.responseArray[1])))){
+        }else if((lenQuestion==3&&lenResponse==2)&&((stringQuestionArray.includes(this.responseArray[0]))&&(stringQuestionArray.includes(this.responseArray[1])))){
             this.seasonQuestion.forEach(response=>{
                 document.getElementById(`${response}`).className=this.classSeasonSleepOk
             })
