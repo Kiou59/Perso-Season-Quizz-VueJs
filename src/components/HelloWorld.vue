@@ -21,7 +21,7 @@ const quizz = useCounterStore();
             <p>Apprenez et recommencer!</p>
         </section>
         <section @click='quizz.startGame'  >
-<button  type="button" id='startButton' class="mb-4 btn btn-lg btn-light mx-auto">START</button>
+            <button  type="button" id='startButton' class="mb-4 btn btn-2xl btn-light mx-auto">START</button>
         </section>
 
 </div>
@@ -52,8 +52,8 @@ body {
 
 .context h1 {
     color: #fff;
-    font-size: 6rem;
-    margin-bottom:8rem
+    font-size: 2rem;
+    margin-bottom:1rem
 }
 
 .context p {
@@ -68,28 +68,51 @@ body {
 
 .context section {
     margin: auto;
-    margin-bottom: 5rem;
+    margin-bottom: 1rem;
       color: #fff;
-    font-size: 1.7rem;
+    font-size: 0.8rem;
     font-weight:bold;
 }
 @media( orientation:portrait) {
 .context h1 {
     color: #fff;
-    font-size: 2rem;
-    margin-bottom:3rem
+    
+    margin-bottom:2rem;
 }
 
 .context p {
 
     color: #fff;
-    font-size: 1rem;
+    font-size: 0.8rem;
 }.context section {
     margin: auto;
-    margin-bottom: 2rem;
+    margin-bottom: 0.5rem;
       color: #fff;
-    font-size: 1.7rem;
+    font-size: 2rem;
     font-weight:bold;
+}
+
+
+}
+button {
+
+    margin-bottom: 0.5rem;
+      color: #fff;
+    font-size: 2rem;
+    font-weight:bold;
+}
+@media (height>=720px)
+{
+    .context section {
+    margin: auto;
+    margin-bottom: 4rem;
+      color: #fff;
+
+    font-weight:bold;
+}
+.context h1 {
+    color: #fff;
+    margin-bottom:6rem;
 }
 
 }
