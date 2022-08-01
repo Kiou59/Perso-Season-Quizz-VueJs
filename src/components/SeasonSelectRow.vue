@@ -8,9 +8,9 @@ const quizz = useCounterStore();
 
 <template>
 <div  :class='quizz.classRow' >
-<div  @click='quizz.fruitsSelect' id='question' class=' text-white rounded-lg border-4 border-gray-200 p-2'> question suivante </div>
-<div v-if=" quizz.responseArray.length >= 1" @click='quizz.Resultat' id='resultat' class='text-white rounded-lg border-4 border-gray-200 p-2'> Soumettre votre réponse</div>
-<section id="wrapperSeason">
+<button  @click='quizz.fruitsSelect' id='question' class=' text-white rounded-lg border-4 border-gray-200 p-2'> question suivante </button>
+<button v-if=" quizz.responseArray.length >= 1" @click='quizz.Resultat' id='resultat' class='text-white rounded-lg border-4 border-gray-200 p-2'> Soumettre votre réponse</button>
+<section class='pt-2' id="wrapperSeason">
  
 <button @click='quizz.response(0)'  :class='quizz.classSeasonSleep'  id='0'>
   {{quizz.seasonsArray[0].text}}
