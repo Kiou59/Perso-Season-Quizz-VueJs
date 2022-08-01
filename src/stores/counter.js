@@ -80,9 +80,17 @@ questionCountListener(){
         document.getElementById('selectedResponse').className='hidden'
         console.log(this.finalResultText)
     }
+},disabledChek(id){
+    if(document.getElementById(`${id}`).disabled=='true'){
+        document.getElementById(`${id}`).disabled='false'
+    }
 },
 
  async fruitsSelect(){
+    document.getElementById('0').disabled=''
+    document.getElementById('1').disabled=''
+    document.getElementById('2').disabled=''
+     document.getElementById('3').disabled=''
     this.responseArray=[]
     this.questionCountListener()
        document.getElementById('question').className='hidden'
@@ -162,6 +170,10 @@ if(this.responseArray.includes(id)){
 
     }},
     Resultat(){
+        document.getElementById('0').disabled='true'
+        document.getElementById('1').disabled='true'
+        document.getElementById('2').disabled='true'
+         document.getElementById('3').disabled='true'
         this.finalResultTextSet()
         document.getElementById('resultat').className='hidden'
         document.getElementById('question').className='text-white rounded-lg border-4 border-gray-200 p-2'    
