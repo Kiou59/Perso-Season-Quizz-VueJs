@@ -73,6 +73,26 @@ body {
     font-size: 1.7rem;
     font-weight:bold;
 }
+@media( orientation:portrait) {
+.context h1 {
+    color: #fff;
+    font-size: 2rem;
+    margin-bottom:3rem
+}
+
+.context p {
+
+    color: #fff;
+    font-size: 1rem;
+}.context section {
+    margin: auto;
+    margin-bottom: 2rem;
+      color: #fff;
+    font-size: 1.7rem;
+    font-weight:bold;
+}
+
+}
 
 
     
