@@ -9,7 +9,6 @@ export const useCounterStore = defineStore({
         classShow:'',
         classHidden:'hidden',
         classRow:'hidden',
-        value1: true,
         selectFruits:[],
         fruits:[],
         question:'',
@@ -33,7 +32,9 @@ export const useCounterStore = defineStore({
         classSeasonSleep:'text-white rounded-lg border-4  border-gray-200 p-2',
         classSeasonSleepOk:'text-white rounded-lg border-4 bg-green-300 border-gray-200 p-2',
         classSeasonSleepAlmost:'text-white rounded-lg border-4 bg-orange-400 border-gray-200 p-2',
-        classSeasonSleepWrong:'text-white rounded-lg border-4 bg-red-800 border-gray-200 p-2'
+        classSeasonSleepWrong:'text-white rounded-lg border-4 bg-red-800 border-gray-200 p-2',
+        finalResultTexts:['Même pas un tout petit point? vous pouvez pas rester sur ce score','Je suis sur que vous pouvez mieux faire','Je suis sur que vous avez appris des choses. Vous voulez en apprendre plus?','Pas mal! Vous voulez voir si vous pouvez faire mieux?',"C'est un! Vous voulez confirmer?"],
+        finalResultText:''
     }),
     // getters: {
     //     doubleCount: (state) => state.counter * 2
@@ -49,17 +50,35 @@ export const useCounterStore = defineStore({
             console.log(this.vegetablesArray)
 
 
-},startGame(){
+},finalResultTextSet(){
+if(this.intFinalResult==0){
+    this.finalResultText=this.finalResultTexts[0]
+}else if(this.intFinalResult>0 && this.intFinalResult<=5){
+    this.finalResultText=this.finalResultTexts[1]
+}else if(this.intFinalResult>5 && this.intFinalResult<=10){
+    this.finalResultText=this.finalResultTexts[2]
+}else if(this.intFinalResult>10 && this.intFinalResult<=15){
+    this.finalResultText=this.finalResultTexts[2]
+}else if(this.intFinalResult>15 && this.intFinalResult<=20){
+    this.finalResultText=this.finalResultTexts[3]
+}
+},
+
+startGame(){
     document.getElementById('firstPage').className='hidden'
     document.getElementById('cardQuestion').className='mx-auto max-w-sm rounded-lg border-4 border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700'
     this.classRow=''
     this.fruitsSelect()
 },
+
 questionCountListener(){
-    if(this.questionCount==2){
+    
+    if(this.questionCount==10){
+        this.finalResultTextSet()
         document.getElementById('note').className='mx-auto max-w-sm rounded-lg border-4 border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700'
         document.getElementById('cardQuestion').className='hidden'
         document.getElementById('selectedResponse').className='hidden'
+        console.log(this.finalResultText)
     }
 },
 
@@ -142,7 +161,7 @@ if(this.responseArray.includes(id)){
 
     }},
     Resultat(){
-
+        this.finalResultTextSet()
         document.getElementById('resultat').className='hidden'
         document.getElementById('question').className='text-white rounded-lg border-4 border-gray-200 p-2'    
         console.log(this.responseArray[0])
@@ -221,6 +240,32 @@ if(this.responseArray.includes(id)){
           this.questionCount++
           console.log(this.questionCount)
          
+        },
+        retry(){
+            if(this.fruitsArray.length>5 && this.vegetablesArray.length>5){
+            this.questionCount=0
+            this.intFinalResult=0
+            this.finalResult=[]
+            this.startGame()
+            document.getElementById('note').className='hidden'
+            document.getElementById('cardQuestion').className='mx-auto max-w-sm rounded-lg border-4 border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700'
+            document.getElementById('selectedResponse').className=''
+        }else{
+            this.seasonsArray=JSON.parse(localStorage.getItem("seasonsArray"))
+            console.log(this.seasonsArray)
+            this.fruitsArray=JSON.parse(localStorage.getItem("fruitsArray"))
+            console.log(this.fruitsArray)
+            this.vegetablesArray=JSON.parse(localStorage.getItem("vegetablesArray"))
+            console.log(this.vegetablesArray)
+            this.questionCount=0
+            this.intFinalResult=0
+            this.finalResult=[]
+            this.startGame()
+            document.getElementById('note').className='hidden'
+            document.getElementById('cardQuestion').className='mx-auto max-w-sm rounded-lg border-4 border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700'
+            document.getElementById('selectedResponse').className=''
+        }
+
         }
     }
 }

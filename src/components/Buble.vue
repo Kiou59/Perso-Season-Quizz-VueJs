@@ -6,9 +6,11 @@ const quizz = useCounterStore();
 </script>
 <template>
 
-<div class="block p-6 rounded-lg shadow-lg  max-w-sm m-auto" >
+<div class="mt-4 block p-6 rounded-lg shadow-lg  max-w-sm m-auto" >
 <h1 class="text-white  leading-tight font-medium mb-2" >Votre score</h1>
 <p class="text-white mb-4" > {{quizz.intFinalResult}}/20 </p>
+<p class="text-white mb-4"> {{quizz.finalResultText}} </p>
+<button @click='quizz.retry' class="my-4 block p-6 rounded-lg border  max-w-sm m-auto">Recommencer?</button>
 </div>
 </template>
 <style>
