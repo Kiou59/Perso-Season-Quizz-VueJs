@@ -52,7 +52,7 @@
         },
         {
             "name": "les kakis",
-            "seasonId": ["0", "2"],
+            "seasonId": ["0", "3"],
             "src": "img/kakis.jpg"
 
         },
@@ -148,7 +148,7 @@
         },
         {
             "name": "les noisettes",
-            "seasonId": ["2"],
+            "seasonId": ["3"],
             "src": "img/noisettes.jpg"
 
         },
@@ -170,7 +170,7 @@
         },
         {
             "name": "les citrons",
-            "seasonId": ["0", "1", "3"],
+            "seasonId": ["0", "1"],
             "src": "img/citrons.jpg"
         }
     ],
@@ -236,7 +236,7 @@
         },
         {
             "name": "les blettes",
-            "seasonId": ["1", "2", "3"],
+            "seasonId": ["3", "2"],
             "src": "img/blettes.jpg"
         },
         {
