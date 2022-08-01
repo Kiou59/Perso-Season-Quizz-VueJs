@@ -2,6 +2,9 @@
 import { useCounterStore } from '@/stores/counter.js'
 const quizz = useCounterStore();
 
+quizz.initData()
+
+
 </script>
 <template>
 <div id='card' class="max-w-sm rounded-lg border-4 border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">

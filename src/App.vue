@@ -7,7 +7,6 @@ import Buble from '@/components/Buble.vue'
 
 import { useCounterStore } from '@/stores/counter.js'
 fetch('/source.json')
-
   .then((res) => res.json() )
   .then(function(myJson) {
     var jsonSeasonsArray= myJson.seasons;
