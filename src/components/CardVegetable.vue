@@ -7,9 +7,9 @@ quizz.initData()
 
 </script>
 <template>
-<div id='card' class="max-w-sm rounded-lg border-4 border-gray-700 shadow-md bg-gray-800 ">
+<div id='card' class="bg-gray-800 max-w-sm rounded-lg border-4 border-gray-700 shadow-md  ">
     
-        <img class="opacity-70 rounded-t-lg" :src="quizz.question.src" alt="" />
+        <img class=" rounded-t-lg" :src="quizz.question.src" alt="" />
     
     <div class="p-5">
         
