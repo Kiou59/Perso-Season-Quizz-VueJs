@@ -19,7 +19,7 @@ fetch('/source.json')
   }
   )
 const quizz=useCounterStore();
-quizz.initData()
+
 
 </script>
 

@@ -1,8 +1,8 @@
 <script setup>
 import { useCounterStore } from '@/stores/counter.js'
 const quizz = useCounterStore();
-
 quizz.initData()
+
 
 
 </script>
