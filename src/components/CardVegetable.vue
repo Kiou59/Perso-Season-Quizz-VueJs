@@ -7,7 +7,7 @@ quizz.initData()
 
 </script>
 <template>
-<div id='card' class="bg-gray-800 max-w-sm rounded-lg border-4 border-gray-700 shadow-md  ">
+<div id='card' class="bg-gray-800 max-w-sm rounded-lg border-4 border-gray-700 dark:text-white dark:bg-gray-800  ">
     
         <img class=" rounded-t-lg" :src="quizz.question.src" alt="" />
     
