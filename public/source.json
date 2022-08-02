@@ -33,7 +33,7 @@
         {
             "name": "les mandarines",
             "seasonId": ["0", "3"],
-            "src": "img/mandarines.jpeg"
+            "src": "img/mandarines.jpg"
         },
         {
             "name": "les pommes",
@@ -124,7 +124,7 @@
         {
             "name": "les prunes",
             "seasonId": ["2", "3"],
-            "src": "img/prunes.jpeg"
+            "src": "img/prunes.jpg"
         },
         {
             "name": "les raisins",

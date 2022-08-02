@@ -6,20 +6,10 @@ import CardVegetable from '@/components/CardVegetable.vue'
 import Buble from '@/components/Buble.vue'
 
 import { useCounterStore } from '@/stores/counter.js'
-fetch('/source.json')
-  .then((res) => res.json() )
-  .then(function(myJson) {
-    var jsonSeasonsArray= myJson.seasons;
-    var jsonFruitsArray=myJson.fruits;
-    var jsonVegetablesArray=myJson.vegetables
-    console.log(jsonSeasonsArray)
-    localStorage.setItem("seasonsArray", JSON.stringify(jsonSeasonsArray))
-    localStorage.setItem("fruitsArray", JSON.stringify(jsonFruitsArray))
-    localStorage.setItem("vegetablesArray", JSON.stringify(jsonVegetablesArray))
-  }
-  )
-const quizz=useCounterStore();
 
+
+const quizz=useCounterStore();
+quizz.initData()
 
 </script>
 

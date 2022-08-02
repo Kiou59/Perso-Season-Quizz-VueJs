@@ -116,6 +116,26 @@ button {
 }
 
 }
+@media (height<=520px)
+{
+    .context p {
+
+    color: #fff;
+    font-size: 0.8rem;
+}.context section {
+    margin: auto;
+    margin-bottom: 0.4rem;
+      color: #fff;
+    font-size: 1rem;
+    font-weight:bold;
+}
+.context h1 {
+    color: #fff;
+    margin-bottom:1rem;
+    font-size:1em;
+}
+
+}
 
 
     

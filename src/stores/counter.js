@@ -42,14 +42,26 @@ export const useCounterStore = defineStore({
     // },
     actions: {
         // affiche la pop up, son niveau actuel et le texte en fonction du niveau en cour
- initData(){
-            this.seasonsArray=JSON.parse(localStorage.getItem("seasonsArray"))
-            console.log(this.seasonsArray)
-            this.fruitsArray=JSON.parse(localStorage.getItem("fruitsArray"))
-            console.log(this.fruitsArray)
-            this.vegetablesArray=JSON.parse(localStorage.getItem("vegetablesArray"))
-            console.log(this.vegetablesArray)
-
+ async initData(){
+  await fetch('/source.json')
+  .then((res) => res.json() )
+  .then(function(myJson) {
+    var jsonSeasonsArray= myJson.seasons;
+    var jsonFruitsArray=myJson.fruits;
+    var jsonVegetablesArray=myJson.vegetables
+    console.log(jsonSeasonsArray)
+ 
+    localStorage.setItem("seasonsArray", JSON.stringify(jsonSeasonsArray))
+    localStorage.setItem("fruitsArray", JSON.stringify(jsonFruitsArray))
+    localStorage.setItem("vegetablesArray", JSON.stringify(jsonVegetablesArray))
+  }
+  )
+  this.seasonsArray=JSON.parse(localStorage.getItem("seasonsArray"))
+  console.log(this.seasonsArray)
+  this.fruitsArray=JSON.parse(localStorage.getItem("fruitsArray"))
+  console.log(this.fruitsArray)
+  this.vegetablesArray=JSON.parse(localStorage.getItem("vegetablesArray"))
+  console.log(this.vegetablesArray)
 
 },finalResultTextSet(){
 if(this.intFinalResult==0){

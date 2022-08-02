@@ -1,7 +1,8 @@
 <script setup>
 import { useCounterStore } from '@/stores/counter.js'
 const quizz = useCounterStore();
-quizz.initData()
+
+
 
 
 
@@ -76,5 +77,27 @@ div{
 }
 
 }
+@media (height<=520px)
+{
+p {
+
+    color: #fff;
+    font-size: 0.8rem;
+} section {
+    margin: auto;
+    margin-bottom: 0.4rem;
+      color: #fff;
+    font-size: 1rem;
+    font-weight:bold;
+}
+h1 {
+    color: #fff;
+    margin-bottom:1rem;
+    font-size:1em;
+}
+
+}
+
+
 
 </style>
