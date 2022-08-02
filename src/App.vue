@@ -4,6 +4,7 @@ import HelloWorld from '@/components/HelloWorld.vue'
 import SeasonSelectRow from '@/components/SeasonSelectRow.vue'
 import CardVegetable from '@/components/CardVegetable.vue'
 import Buble from '@/components/Buble.vue'
+import Footer from '@/components/Footer.vue'
 
 import { useCounterStore } from '@/stores/counter.js'
 
@@ -14,17 +15,11 @@ quizz.initData()
 </script>
 
 <template>
-
+<Footer />
 <HelloWorld id='firstPage'  />
 <CardVegetable id='cardQuestion' :class="quizz.classHidden" />
 <SeasonSelectRow id='selectedResponse'  />
 <Buble id="note" :class="quizz.classHidden" />
-
-
-
-
-
-
 
 
 </template>
