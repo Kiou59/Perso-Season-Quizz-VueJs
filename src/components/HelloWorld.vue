@@ -46,8 +46,6 @@ body {
 }
 .context {
     width: auto;
-
-
 }
 
 .context h1 {
@@ -84,17 +82,16 @@ body {
 
     color: #fff;
     font-size: 0.8rem;
-}.context section {
+}
+.context section {
     margin: auto;
     margin-bottom: 0.5rem;
       color: #fff;
     font-size: 2rem;
     font-weight:bold;
 }
-
-
 }
-button {
+.context button {
 
     margin-bottom: 0.5rem;
       color: #fff;
@@ -113,6 +110,20 @@ button {
 .context h1 {
     color: #fff;
     margin-bottom:6rem;
+}
+.context button {
+
+    margin-bottom: 0.5rem;
+      color: #fff;
+    font-size: 2em;
+    font-weight:bold;
+}
+#startButton {
+
+    margin-bottom: 0.5rem;
+      color: #fff;
+    font-size: 2rem;
+    font-weight:bold;
 }
 
 }
@@ -133,6 +144,13 @@ button {
     color: #fff;
     margin-bottom:1rem;
     font-size:1em;
+}
+#startButton {
+
+    margin-bottom: 0.5rem;
+      color: #fff;
+    font-size: 2rem;
+    font-weight:bold;
 }
 
 }
