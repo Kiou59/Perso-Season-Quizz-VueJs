@@ -22,6 +22,10 @@ const quizz=useCounterStore();
 </template>
 
 <style>
+*{
+    margin:0;
+    padding:0
+}
 .row{
     color:white;
     font-size:1em;

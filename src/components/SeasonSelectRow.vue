@@ -39,7 +39,7 @@ div {
     font-family: 'Exo', sans-serif;
     font-weight:bold;
     color: #fff;
-    font-size: 2rem;
+    font-size: 1.2rem;
     text-align:center;
     width:auto;
     margin: 5px;
@@ -66,4 +66,7 @@ div {
     justify-content:space-around;
 }
 }
+
+
+
 </style>
