@@ -67,6 +67,15 @@ div {
 }
 }
 
-
-
+@media (height<500){
+div {
+    font-family: 'Exo', sans-serif;
+    font-weight:bold;
+    color: #fff;
+    font-size: 0.8rem;
+    text-align:center;
+    width:auto;
+    margin: 5px;
+   
+}}
 </style>

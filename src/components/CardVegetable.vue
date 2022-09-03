@@ -39,6 +39,7 @@ h5{
 div{
      font-size: 1rem; 
 }
+
 @media( orientation:portrait) {
  #card{
     font-family: 'Exo', sans-serif;
@@ -50,11 +51,11 @@ div{
     margin: auto;
     color:white;
 }
-
 }
+
 @media (height>=720px)
 {
-     #card{
+    #card{
     font-family: 'Exo', sans-serif;
     font-weight:bold;
     color: #fff;
@@ -67,37 +68,13 @@ div{
     .context section {
     margin: auto;
     margin-bottom: 4rem;
-      color: #fff;
-
+    color: #fff;
     font-weight:bold;
 }
 .context h1 {
     color: #fff;
     margin-bottom:6rem;
 }
-
 }
-@media (height<=520px)
-{
-p {
-
-    color: #fff;
-    font-size: 0.8rem;
-} section {
-    margin: auto;
-    margin-bottom: 0.4rem;
-      color: #fff;
-    font-size: 1rem;
-    font-weight:bold;
-}
-h1 {
-    color: #fff;
-    margin-bottom:1rem;
-    font-size:1em;
-}
-
-}
-
-
 
 </style>
