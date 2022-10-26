@@ -41,7 +41,7 @@ export const useCounterStore = defineStore({
     //     doubleCount: (state) => state.counter * 2
     // },
     actions: {
-        // affiche la pop up, son niveau actuel et le texte en fonction du niveau en cour
+// recupération des donnée comprise dans le fichier Json
  async initData(){
   await fetch('/source.json')
   .then((res) => res.json() )
@@ -49,17 +49,21 @@ export const useCounterStore = defineStore({
     var jsonSeasonsArray= myJson.seasons;
     var jsonFruitsArray=myJson.fruits;
     var jsonVegetablesArray=myJson.vegetables
+  // stockage des donnée en local pour reinitiliaser le quizz sans refaire de fetch
     localStorage.setItem("seasonsArray", JSON.stringify(jsonSeasonsArray))
     localStorage.setItem("fruitsArray", JSON.stringify(jsonFruitsArray))
     localStorage.setItem("vegetablesArray", JSON.stringify(jsonVegetablesArray))
   }
   )
+  // injection des donnée dans les tableau qui serviront au quizz
   this.seasonsArray=JSON.parse(localStorage.getItem("seasonsArray"))
   this.fruitsArray=JSON.parse(localStorage.getItem("fruitsArray"))
   this.vegetablesArray=JSON.parse(localStorage.getItem("vegetablesArray"))
 
 
-},finalResultTextSet(){
+},
+// affectation du texte de fin en fonction du score optenu
+finalResultTextSet(){
 if(this.intFinalResult==0){
     this.finalResultText=this.finalResultTexts[0]
 }else if(this.intFinalResult>0 && this.intFinalResult<=5){
@@ -81,43 +85,30 @@ startGame(){
 },
 
 questionCountListener(){
-    
     if(this.questionCount==10){
         this.finalResultTextSet()
-        document.getElementById('note').className='mx-auto max-w-sm rounded-lg border-4 border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700'
+        document.getElementById('total').className='mx-auto max-w-sm rounded-lg border-4 border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700'
         document.getElementById('cardQuestion').className='hidden'
         document.getElementById('selectedResponse').className='hidden'
-
-    }
-},disabledChek(id){
-    if(document.getElementById(`${id}`).disabled=='true'){
-        document.getElementById(`${id}`).disabled='false'
     }
 },
 
  async fruitsSelect(){
+    this.questionCountListener()
     document.getElementById('0').disabled=''
     document.getElementById('1').disabled=''
     document.getElementById('2').disabled=''
-     document.getElementById('3').disabled=''
+    document.getElementById('3').disabled=''
     this.responseArray=[]
-    this.questionCountListener()
-       document.getElementById('question').className='hidden'
+      document.getElementById('question').className='hidden'
         this.textResult=''
         this.vueResult=''
         this.vueResultClass='mb-2 font-bold tracking-tight text-white dark:text-white'
-        // document.getElementById('resultat').className='text-white rounded-lg border-4 border-gray-200 p-2'
-        
         this.seasonsArray.forEach(season=>{
             document.getElementById(`${season.id}`).className=this.classSeasonSleep
         })
         let m=0;
-        
-      
         m=(Math.floor(Math.random() * this.fruitsArray.length))
-        if(this.finalResult.length==0){
-            
-        }
       if(this.s==0)
         {
         this.s=1
@@ -138,11 +129,8 @@ questionCountListener(){
         this.question=this.vegetablesArray[m]
         this.restFruits =this.vegetablesArray.splice(m,1)
       this.seasonQuestion=this.question.seasonId.map(e=>e)
-
         this.seasonResponse=this.seasonQuestion.map(season=>this.seasonsArray[season].text)
-
         this.intFinalResult=this.finalResult.reduce((a,b)=>a+b)
-
         for (let i=0; i<=(this.seasonResponse.length-1);i++){
           if(i == (this.seasonResponse.length-3)){
             this.textResult+=`${this.seasonResponse[i]}, `
@@ -156,6 +144,7 @@ questionCountListener(){
         
       
 },
+
  response(id){
 if(this.responseArray.includes(id)){
         this.restFruits=this.responseArray.splice(this.responseArray.indexOf(id,1))
@@ -163,11 +152,9 @@ if(this.responseArray.includes(id)){
         
     }else{
         this.responseArray.push(id)
-
         document.getElementById(`${id}`).className=this.classSeasonActive
-
-
     }},
+
     Resultat(){
         document.getElementById('0').disabled='true'
         document.getElementById('1').disabled='true'
@@ -188,19 +175,7 @@ if(this.responseArray.includes(id)){
         totalResponseArray = this.responseArray.reduce((a,b)=>parseInt(a)+parseInt(b))
         totalQuestionArray=this.seasonQuestion.reduce((a,b)=>parseInt(a)+parseInt(b))
 
-        if(lenResponse==null){
-            this.vueResult=`Vous devez séléctionner une réponse.`
-        }
-        else if(totalResponseArray==totalQuestionArray&&lenQuestion==lenResponse){
-            this.vueResult=`Vous avez raison ${this.question.name} sont récoltés  ${this.textResult}`
-            this.vueResultClass='mb-2 font-bold tracking-tight text-green-700 dark:text-green-700'
-
-          this.finalResult.push(2)
-          this.intFinalResult=this.finalResult.reduce((a,b)=>a+b)
-          this.responseArray.forEach(response=>{
-            document.getElementById(`${response}`).className=this.classSeasonSleepOk
-        })
-        }        else if(totalResponseArray==totalQuestionArray&&lenQuestion==lenResponse){
+        if(totalResponseArray==totalQuestionArray&&lenQuestion==lenResponse){
             this.vueResult=`Vous avez raison ${this.question.name} sont récoltés  ${this.textResult}`
             this.vueResultClass='mb-2 font-bold tracking-tight text-green-700 dark:text-green-700'
 
@@ -210,11 +185,8 @@ if(this.responseArray.includes(id)){
             document.getElementById(`${response}`).className=this.classSeasonSleepOk
         })
         }
-        else if(this.responseArray.length==0&&this.seasonQuestion.length>1){
-          this.vueResult=`Vous devez séléctionner au moins une réponse (mais plusieurs réponse pour cette question... C'est plutot conseillé <<wink--wink>> )`
-        }else if(this.responseArray.length==0&&this.seasonQuestion.length==1){
-            this.vueResult=`Vous devez séléctionner une réponse.`
-        }else if(lenQuestion<lenResponse){
+        
+        else if(lenQuestion<lenResponse){
             this.vueResult=`Raté  ${this.question.name} ne sont récoltés qu' ${this.textResult}`
             this.vueResultClass='mb-2 font-bold tracking-tight text-red-600 dark:text-red-600'
             this.responseArray.forEach(response=>{
@@ -225,7 +197,9 @@ if(this.responseArray.includes(id)){
             })
           this.finalResult.push(0)
           this.intFinalResult=this.finalResult.reduce((a,b)=>a+b)
-        }else if((lenQuestion==2&&lenResponse==1)&&(intQuestionArray.includes(this.responseArray[0]))){
+        }
+        
+        else if((lenQuestion==2&&lenResponse==1)&&(intQuestionArray.includes(this.responseArray[0]))){
             this.vueResult=`C'est pas tout à fait ça ${this.question.name} sont récoltés  ${this.textResult}`
             this.vueResultClass='mb-2 font-bold tracking-tight text-amber-600 dark:text-amber-600'
 
@@ -237,7 +211,9 @@ if(this.responseArray.includes(id)){
             })
           this.finalResult.push(1)
           this.intFinalResult=this.finalResult.reduce((a,b)=>a+b)
-        }else if((lenQuestion==3&&lenResponse==2)&&((stringQuestionArray.includes(this.responseArray[0]))&&(stringQuestionArray.includes(this.responseArray[1])))){
+        }
+        
+        else if((lenQuestion==3&&lenResponse==2)&&((stringQuestionArray.includes(this.responseArray[0]))&&(stringQuestionArray.includes(this.responseArray[1])))){
             this.seasonQuestion.forEach(response=>{
                 document.getElementById(`${response}`).className=this.classSeasonSleepOk
             })
@@ -248,7 +224,9 @@ if(this.responseArray.includes(id)){
             this.vueResultClass='mb-2 font-bold tracking-tight text-amber-600 dark:text-amber-600'
           this.finalResult.push(1)
           this.intFinalResult=this.finalResult.reduce((a,b)=>a+b)
-        }else{
+        }
+        
+        else{
             this.vueResult=`Raté ${this.question.name} sont récoltés  ${this.textResult}`
             this.vueResultClass='mb-2 font-bold tracking-tight text-red-600 dark:text-red-600'
             this.finalResult.push(0)
@@ -261,6 +239,8 @@ if(this.responseArray.includes(id)){
             })
           }
           this.questionCount++
+          console.log(this.questionCount)
+          console.log(document.getElementById('total').className)
         },
         retry(){
             if(this.fruitsArray.length>5 && this.vegetablesArray.length>5){
@@ -268,7 +248,7 @@ if(this.responseArray.includes(id)){
             this.intFinalResult=0
             this.finalResult=[]
             this.startGame()
-            document.getElementById('note').className='hidden'
+            document.getElementById('total').className='hidden'
             document.getElementById('cardQuestion').className='mx-auto max-w-sm rounded-lg border-4 border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700'
             document.getElementById('selectedResponse').className=''
         }else{
@@ -279,7 +259,7 @@ if(this.responseArray.includes(id)){
             this.intFinalResult=0
             this.finalResult=[]
             this.startGame()
-            document.getElementById('note').className='hidden'
+            document.getElementById('total').className='hidden'
             document.getElementById('cardQuestion').className='mx-auto max-w-sm rounded-lg border-4 border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700'
             document.getElementById('selectedResponse').className=''
         }

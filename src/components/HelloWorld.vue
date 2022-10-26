@@ -6,9 +6,6 @@ const quizz = useCounterStore();
 </script>
 <template>
 <div class='context'>
-
-
-
         <h1>BIENVENUE SUR SEASONQUIZZ!</h1>
         <section>
             <p>Il est important de privilégier les fruits et légumes de saison pour leur goût, mais aussi afin de réduire notre impact écologique.</p>

@@ -1,11 +1,6 @@
 <script setup>
 import { useCounterStore } from '@/stores/counter.js'
 const quizz = useCounterStore();
-
-
-
-
-
 </script>
 <template>
 <div id='card' class="bg-gray-800 max-w-sm rounded-lg border-4 border-gray-700 dark:text-white dark:bg-gray-800  ">
